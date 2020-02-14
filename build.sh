@@ -7,16 +7,16 @@ REPO_ROOT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $REPO_ROOT_DIR
 
 # Grab dcos-commons build/release tools:
-rm -rf dcos-commons-tools/ && curl https://infinity-artifacts.s3.amazonaws.com/dcos-commons-tools.tgz | tar xz
+#rm -rf dcos-commons-tools/ && curl https://infinity-artifacts.s3.amazonaws.com/dcos-commons-tools.tgz | tar xz
 
 # GitHub notifier config
-_notify_github() {
-    $REPO_ROOT_DIR/dcos-commons-tools/github_update.py $1 build $2
-}
+#_notify_github() {
+#    $REPO_ROOT_DIR/dcos-commons-tools/github_update.py $1 build $2
+#}
 
 # Build steps for Cassandra
 
-_notify_github pending "Build running"
+#_notify_github pending "Build running"
 
 # Scheduler/Executor (Java):
 
@@ -30,27 +30,27 @@ fi
 sed -i 's/parallel=true/parallel=false/g' gradle.properties
 ./gradlew check
 if [ $? -ne 0 ]; then
-  _notify_github failure "Unit tests failed"
+  #_notify_github failure "Unit tests failed"
   exit 1
 fi
 
 # CLI (Go):
 
-cd cli/ && ./build-cli.sh
+#cd cli/ && ./build-cli.sh
 if [ $? -ne 0 ]; then
-  _notify_github failure "CLI build failed"
+  #_notify_github failure "CLI build failed"
   exit 1
 fi
 cd $REPO_ROOT_DIR
 
-_notify_github success "Build succeeded"
+#_notify_github success "Build succeeded"
 
-./dcos-commons-tools/publish_aws.py \
-  cassandra \
-  universe/ \
-  cassandra-scheduler/build/distributions/scheduler.zip \
-  cassandra-executor/build/distributions/executor.zip \
-  cli/dcos-cassandra/dcos-cassandra-darwin \
-  cli/dcos-cassandra/dcos-cassandra-linux \
-  cli/dcos-cassandra/dcos-cassandra.exe \
-  cli/python/dist/*.whl
+# ./dcos-commons-tools/publish_aws.py \
+#  cassandra \
+#  universe/ \
+#  cassandra-scheduler/build/distributions/scheduler.zip \
+#  cassandra-executor/build/distributions/executor.zip \
+#  cli/dcos-cassandra/dcos-cassandra-darwin \
+#  cli/dcos-cassandra/dcos-cassandra-linux \
+#  cli/dcos-cassandra/dcos-cassandra.exe \
+#  cli/python/dist/*.whl

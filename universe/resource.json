@@ -1,10 +1,10 @@
 {
   "assets": {
     "uris": {
-      "scheduler-zip":"{{artifact-dir}}/scheduler.zip",
-      "executor-zip":"{{artifact-dir}}/executor.zip",
+      "scheduler-zip":"https://vdb-core-digital-test-infra.s3.eu-central-1.amazonaws.com/cassandra/3.0.14/scheduler.zip",
+      "executor-zip":"https://vdb-core-digital-test-infra.s3.eu-central-1.amazonaws.com/cassandra/3.0.14/executor.zip",
       "jre-tar-gz":"https://downloads.mesosphere.com/java/jre-8u121-linux-x64.tar.gz",
-      "apache-cassandra-bin-tar-gz":"https://downloads.mesosphere.com/cassandra/assets/apache-cassandra-3.0.10-bin-dcos.tar.gz",
+      "apache-cassandra-bin-tar-gz":"https://vdb-core-digital-test-infra.s3.eu-central-1.amazonaws.com/cassandra/3.0.14/apache-cassandra-3.0.14-bin.tar.gz",
       "libmesos-bundle-tar-gz": "https://downloads.mesosphere.com/libmesos-bundle/libmesos-bundle-1.9-argus-1.1.x-3.tar.gz"
     }
   },
@@ -19,14 +19,14 @@
         "x86-64":{
           "contentHash":[ { "algo":"sha256", "value":"{{sha256:dcos-cassandra-darwin}}" } ],
           "kind":"executable",
-          "url":"{{artifact-dir}}/dcos-cassandra-darwin"
+          "url":"https://vdb-core-digital-test-infra.s3.eu-central-1.amazonaws.com/cassandra/3.0.14/dcos-cassandra-darwin"
         }
       },
       "linux":{
         "x86-64":{
           "contentHash":[ { "algo":"sha256", "value":"{{sha256:dcos-cassandra-linux}}" } ],
           "kind":"executable",
-          "url":"{{artifact-dir}}/dcos-cassandra-linux"
+          "url":"https://vdb-core-digital-test-infra.s3.eu-central-1.amazonaws.com/cassandra/3.0.14/dcos-cassandra-linux"
         }
       },
       "windows":{

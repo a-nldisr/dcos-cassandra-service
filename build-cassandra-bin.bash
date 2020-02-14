@@ -22,7 +22,7 @@ if [ -z "$SED" ]; then
 fi
 
 # VERSION SETTINGS
-CASSANDRA_VERSION="3.0.10"
+CASSANDRA_VERSION="3.0.14"
 METRICS_INTERFACE_VERSION="3" # Cassandra 2.2+ uses metrics3, while <= 2.1 uses metrics2.
 STATSD_REPORTER_VERSION="4.1.2-SNAPSHOT" # Custom version due to usage of metrics-core-3.1.0 interface in Cassandra 2.2+
 REPORTER_CONFIG_VERSION="3.0.3"
